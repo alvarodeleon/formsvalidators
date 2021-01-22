@@ -2,4 +2,4 @@
 setup.cfg
 setup.py
 FormsValidators/__init__.py
-FormsValidators/validators.py
+FormsValidators/rules.py

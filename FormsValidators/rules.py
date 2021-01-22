@@ -26,6 +26,7 @@ class Validators:
 			if rule=='ip':
 				if not self.ip(value):
 					check = False
+
 			if rule=='mail':
 				if not self.mail(value):
 					check = False
@@ -37,7 +38,12 @@ class Validators:
 			if rule=='float':
 				if not self.float(value):
 					check = False
+
 			if rule=='numeric':
+				if not self.numeric(value):
+					check = False
+
+			if rule=='filename':
 				if not self.numeric(value):
 					check = False
 
@@ -69,6 +75,9 @@ class Validators:
 			return True 
 		else:
 			return False
+
+	def filename(self,value):
+		return re.match("^[A-Za-z0-9\_\-\.]+$",value)
 
 	#States
 
@@ -132,7 +141,7 @@ class FormValidation:
 	def rules(self,field,rules,options=None):
 		
 		#Validation with validators
-		validator = validators()
+		validator = Validators()
 		
 		
 		if field in self.__data:
