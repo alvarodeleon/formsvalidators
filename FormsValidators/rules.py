@@ -57,6 +57,10 @@ class Validators:
 
 	#Arrays
 	def options(self,value,options):
+
+		if self.empty(value):
+			return False
+			
 		if value in options:
 			return True
 		else:
@@ -65,12 +69,23 @@ class Validators:
 	#Contents
 
 	def domain(self,value):
+		
+		if self.empty(value):
+			return False
+
 		return re.match("^(?=.{1,255}$)(?!-)[A-Za-z0-9\-]{1,63}(\.[A-Za-z0-9\-]{1,63})*\.?(?<!-)$",value)
 
 	def ip(self,value):
+		
+		if self.empty(value):
+			return False
+
 		return re.match("[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$",value)
 
 	def mail(self,value):
+
+		if self.empty(value):
+			return False
 
 		#if re.match('^[a-z0-9\.]+[@]\w+[.]\w{2,3}+[.]\w{2,3}$',value) or re.match('^[a-z0-9\.]+[@]\w+[.]\w{2,3}$',value):
 		#if re.match("^[a-z0-9\.]+[@][a-z0-9\.].+[.]\w{2,3}$",value):
@@ -82,7 +97,7 @@ class Validators:
 
 	def filename(self,value):
 		
-		if value is None:
+		if self.empty(value):
 			return False
 
 		return re.match("^[A-Za-z0-9\_\-\.]+$",value)
@@ -92,7 +107,7 @@ class Validators:
 	def empty(self,value):
 
 		if value is None:
-			return False
+			return True
 
 		try:
 			if self.numeric(value):
