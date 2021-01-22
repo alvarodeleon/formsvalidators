@@ -7,7 +7,7 @@ setup(
   author = 'Alvaro De Leon',
   author_email = 'deleon@adl.com.uy',
   url = 'https://github.com/alvarodeleon/formsvalidators', # use the URL to the github repo
-  download_url = 'https://github.com/alvarodeleon/formsvalidators/tarball/0.0.1',
+  download_url = 'https://github.com/alvarodeleon/formsvalidators/tarball/0.0.2',
   keywords = ['validation', 'forms'],
   classifiers = [],
 )
