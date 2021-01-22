@@ -81,28 +81,37 @@ class Validators:
 			return False
 
 	def filename(self,value):
+		
+		if value is None:
+			return False
+
 		return re.match("^[A-Za-z0-9\_\-\.]+$",value)
 
 	#States
 
 	def empty(self,value):
 
-		if self.numeric(value):
-			if value < 1:
-				return True
-			else:
-				return False
-		
-			if len(value)<1:
-				return True
-			else:
-				return False
-		elif self.string(value):
-			if len(value)<1:
-				return True
-			else:
-				return False
+		if value is None:
+			return False
 
+		try:
+			if self.numeric(value):
+				if value < 1:
+					return True
+				else:
+					return False
+			
+				if len(value)<1:
+					return True
+				else:
+					return False
+			elif self.string(value):
+				if len(value)<1:
+					return True
+				else:
+					return False
+		except:
+			return False
 
 	#types
 	def string(self,value):
