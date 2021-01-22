@@ -9,45 +9,49 @@ class Validators:
 
 		explode_rules = rules.split(',')
 
-		for rule in explode_rules:
+		if value is not None:
 
-			if rule=='!empty':
-				if self.empty(value):
-					check = False
+			for rule in explode_rules:
 
-			if rule=='!none':
-				if value is None:
-					check = False
-			
-			if rule=='domain':
-				if not self.domain(value):
-					check = False
+				if rule=='!empty':
+					if self.empty(value):
+						check = False
 
-			if rule=='ip':
-				if not self.ip(value):
-					check = False
+				if rule=='!none':
+					if value is None:
+						check = False
+				
+				if rule=='domain':
+					if not self.domain(value):
+						check = False
 
-			if rule=='mail':
-				if not self.mail(value):
-					check = False
+				if rule=='ip':
+					if not self.ip(value):
+						check = False
 
-			if rule=='integer':
-				if not self.integer(value):
-					check = False
+				if rule=='mail':
+					if not self.mail(value):
+						check = False
 
-			if rule=='float':
-				if not self.float(value):
-					check = False
+				if rule=='integer':
+					if not self.integer(value):
+						check = False
 
-			if rule=='numeric':
-				if not self.numeric(value):
-					check = False
+				if rule=='float':
+					if not self.float(value):
+						check = False
 
-			if rule=='filename':
-				if not self.numeric(value):
-					check = False
+				if rule=='numeric':
+					if not self.numeric(value):
+						check = False
 
-		return check
+				if rule=='filename':
+					if not self.numeric(value):
+						check = False
+
+			return check
+		else:
+			return False
 
 
 
