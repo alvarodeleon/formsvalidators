@@ -1,7 +1,7 @@
 import re
 
 
-class validators:
+class Validators:
 
 	def rules(self,value,rules):
 
