@@ -2,12 +2,12 @@ from distutils.core import setup
 setup(
   name = 'FormsValidators',
   packages = ['FormsValidators'], # this must be the same as the name above
-  version = '0.0.10',
+  version = '0.0.11',
   description = 'FormsValidators',
   author = 'Alvaro De Leon',
   author_email = 'deleon@adl.com.uy',
   url = 'https://github.com/alvarodeleon/formsvalidators', # use the URL to the github repo
-  download_url = 'https://github.com/alvarodeleon/formsvalidators/tarball/0.0.10',
+  download_url = 'https://github.com/alvarodeleon/formsvalidators/tarball/0.0.11',
   keywords = ['validation', 'forms'],
   classifiers = [],
 )

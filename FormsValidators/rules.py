@@ -163,6 +163,8 @@ class FormValidation:
 	__errors = []
 	__fields_cheched = []
 
+	__fields_map = {}
+
 	def __init__(self,data):
 		self.__data = data	
 
@@ -171,6 +173,12 @@ class FormValidation:
 		#Validation with validators
 		validator = Validators()
 		
+		if field.find(":") != -1:
+			names =  field.split(':')
+			self.__fields_map[names[0]] = names[1]
+			field = names[0]
+		else:
+			self.__fields_map[field] = field
 		
 		if field in self.__data:
 			
@@ -203,11 +211,12 @@ class FormValidation:
 		return self.__data
 
 	def check(self):
+
 		tmp = {}	
 
 		for field in self.__data:
 			if field in self.__fields_cheched:
-				tmp[field] = self.__data[field]
+				tmp[self.__fields_map[field]] = self.__data[field]
 
 		self.__data = tmp
 
@@ -215,3 +224,4 @@ class FormValidation:
 			return False
 		else:
 			return True
+
